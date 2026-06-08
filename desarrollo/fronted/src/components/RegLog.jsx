@@ -17,6 +17,7 @@ const RegLog = () => {
     let [password, setPassword] = useState("");
     let [userImage, setUserImage] = useState("https://i.pinimg.com/originals/9d/7c/74/9d7c745207ba381b7bc4d41912ef4196.jpg?nii=t");
     let [adminLv, setAdminLv] = useState(false);
+   
     // Niveles de administrador
     // averageUser
     // webAdminUser
