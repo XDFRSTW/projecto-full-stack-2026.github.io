@@ -1,0 +1,391 @@
+@import "tailwindcss";
+
+/* No todos los estilos css se encuentran en uso, muchos borradores */
+
+body {
+    background-color: rgb(201, 201, 201);
+}
+
+/* Css relacionado con la página de registrarse e iniciar sesión */
+.regLog-Image {
+    width: 40vw;
+    height: auto;
+}
+
+.regLog-border {
+    border: 1vw solid rgb(92, 92, 92);
+    border-bottom: transparent;
+    height: 200vw;
+}
+
+.regLog-center {
+    flex-direction: column;
+    align-items: center;
+}
+
+.regLog-flex {
+    justify-content: center;
+}
+
+.regLog-title {
+    font-size: 16vw;
+    color: rgb(54, 54, 54);
+}
+
+.regLog-info {
+    text-align: center;
+    font-size: 8px;
+    margin: auto 2vw auto 2vw;
+    width: 60vw;
+}
+
+.regLog-info-text {
+    border: 0.5px solid rgb(207, 207, 207);
+}
+
+.regLog-averageFontSize {
+    font-size: 3.8vw;
+}
+
+.regLog-column {
+    flex-direction: column;
+    align-content: center;
+}
+
+.regLog-footer {
+    font-size: 2.8vw;
+    justify-content: center;
+    align-items: center;
+    border: 1vw solid rgb(92, 92, 92);
+    border-top: transparent;
+    height: 60vw;
+}
+
+.regLog-mark {
+    margin: auto 2vw auto 2vw;
+    background-color: rgb(225, 225, 225);
+    border: 1px solid black;
+}
+
+.regLog-regLog {
+    margin: auto 2vw auto 2vw;
+    background-color: transparent;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(74, 74, 74);
+    color: white;
+    transition: 1s;
+}
+
+/* Css relacionado con la página del perfil */
+
+.perfil-header {
+    margin-bottom: 4rem;
+    display: flex;
+}
+
+.perfil-image {
+    width: 40vw;
+    height: auto;
+    margin: 1rem;
+    position: relative;
+}
+
+.perfil-data {
+    position: relative;
+    left: 1rem;
+    top: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.perfil-username {
+    text-decoration: underline rgb(243, 243, 243);
+}
+
+.perfil-imageForm {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 6rem;
+}
+
+.input {
+    background-color: rgb(238, 238, 238);
+    border: 1px solid black;
+    margin-right: 0.75rem;
+}
+
+.perfil-imageFix {
+    position: relative;
+}
+
+.perfil-delete {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+}
+
+.perfil-deletePanel {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    inset: 25%;
+}
+
+.invisible {
+    width: 0px;
+    opacity: 0%;
+}
+
+.perfil-fontSize {
+    font-size: 2.8vw;
+}
+
+.perfil-showPanel {
+    color: rgb(43, 255, 0);
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.perfil-marginRight {
+    margin: 1rem;
+}
+
+.perfil-deleteText {
+    background-color: rgba(255, 255, 255, 0.192);
+}
+
+/* Main del perfil */
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vw;
+}
+
+.perfil-volver {
+    font-size: 2.8vw;
+    position: relative;
+    right: 550%;
+    bottom: 100%;
+}
+
+.perfil-form {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    background-color: rgb(255, 251, 238);
+    border: 1px solid black;
+    width: 75%;
+}
+
+.perfil-formBoxes {
+    margin: 0.5rem;
+}
+
+.perfil-formButton {
+    border: 1px solid black;
+    font-size: 1rem;
+}
+
+.perfil-formTitle {
+    font-size: 10vw;
+    text-decoration: underline;
+    margin-bottom: 8rem;
+}
+
+.label {
+    margin-right: 0.5rem;
+    text-decoration: underline;
+}
+
+/* Css compartido para algunas de las páginas */
+
+.averageHeader {
+    color: white;
+    font-size: 8vw;
+    justify-content: center;
+    border: 3px solid white;
+}
+
+.averageTitle {
+    color: white;
+    font-size: 8vw;
+}
+
+.averageVolver {
+    font-size: 2.8vw;
+    position: relative;
+    left: 0.5rem;
+    top: 0.5rem;
+}
+
+.averageMargin {
+    margin-bottom: 2rem;
+}
+
+.averageButton {
+    cursor: pointer;
+}
+
+.averageIcon {
+    width: 1.75rem;
+}
+
+/* Css de las cajetillas de los productos */
+
+.productsBox {
+    border: 1px solid rgb(190, 190, 190);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column-reverse;
+    position: absolute;
+    left: 19%;
+}
+
+.productBox {
+    width: 60vw;
+    /* height: 20rem; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0.5rem;
+    padding: 0.55rem;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid black;
+    align-items: center;
+}
+
+.buttonRight {
+    margin: auto auto auto 75%;
+}
+
+.productImage{
+    width: 60vw;
+}
+
+
+/* Clase que no se usó */
+
+/* .data {
+    margin: 1rem auto 1rem 0px;
+    text-decoration: underline;
+} */
+
+.buttonsBox {
+    height: 2rem;
+    position: relative;
+}
+
+.productText {
+    text-align: center;
+
+}
+
+/* Css para la página de editar productos */
+
+.editar-volver {
+    font-size: 2.8vw;
+    position: relative;
+    /* El porcentaje debe ser así de elevado para que se posicione en donde quiero */
+    right: 575%;
+}
+
+/* Css dela página "home" (o al menos se hizo inicialmente para este) */
+
+.home-header {
+    justify-content: center;
+    border: 3px solid white;
+    height: 18vw;
+}
+
+.home-left {
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+}
+
+.home-right {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+}
+
+.home-title {
+    color: white;
+    font-size: 8vw;
+    display: flex;
+    align-self: center;
+}
+
+.home-icons {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgb(64, 64, 64);
+    background-color: rgb(233, 232, 232);
+    cursor: pointer;
+}
+
+.home-iconsLupa {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgb(64, 64, 64);
+    background-color: rgb(233, 232, 232);
+    cursor: pointer;
+    position: relative;
+    top: 0.8rem;
+    left: 0.8rem;
+    margin-right: 2rem;
+}
+
+.home-panel {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    left: 0.5rem;
+    top: 3rem;
+    height: 12remh;
+    width: 8rem;
+    align-items: center;
+}
+
+.home-routes {
+    margin: 1rem auto 1rem auto;
+}
+
+/* Este css aplica una línea a modo de subrrayado */
+.line {
+    border-bottom: 1px solid gray;
+    /* Para que lalínea se vea bien bella */
+    height: 4rem;
+}
+
+/* Css del carrito */
+
+/* Css del panel de administrador */
+
+.admin-buttonsBox {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    height: 2rem;
+    width: 56vw;
+}
+
+/* Css para arreglar inconvenientes */
+
+.editar-buttonFix{
+    position: relative;
+    right: 12vw;
+}
