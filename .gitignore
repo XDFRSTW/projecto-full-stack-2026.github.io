@@ -1,4 +1,9 @@
-<<<<<<< HEAD
+# Archivogitignore más complejo que antes
+
+
+
+
+
 # Ignorar archivos de sistema
 .DS_Store
 Thumbs.db
