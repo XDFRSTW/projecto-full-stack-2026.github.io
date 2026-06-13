@@ -4,8 +4,10 @@ import '../../index.css'
 import lupa from "../../images/lupa.svg"
 import menu from "../../images/menu.svg"
 import rainbow from "../../images/rainbow.svg"
+// Constantes
+import handleUserImages from "../../const/usuario/Perfil";
 
-const Perfil = () => {
+const Perfil = ({saludo}) => {
     // Respecto a eliminar el usuario
 
     let [panel, setPanel] = useState(false);
@@ -182,7 +184,8 @@ const Perfil = () => {
                 {/* Datos del perfil y enlace a la foto */}
                 < div className="perfil-data perfil-fontSize">
                     <span title="tú" className="perfil-username">{username}</span>
-                    <form className="perfil-imageForm" onSubmit={handleUserImage}>
+                    {/* Modificación en esta línea. Texto de prueba */}
+                    <form className="perfil-imageForm" onSubmit={handleUserImages}>
                         <input className="input" type="text" placeholder="*escribe" value={userImage} onChange={(e) => setUserImage(e.target.value)} />
                         <button className="button perfil-imageFix" type="submit">Cambiar</button>
 

@@ -16,7 +16,7 @@ const Home = () => {
     const history = useNavigate();
     const navigate = useNavigate();
 
-    // Respecto a mostrar todos los productos existente (el código que yo voya usar no serviría para páginas con bases de datos
+    // Respecto a mostrar todos los productos existente (el código que yo voy a usar no serviría para páginas con bases de datos
     //  de tamaños importantes, por el tiempo que tardaría en cargar (en las típicas tiendas de productos suelen mostrarse de 
     // poco en poco para no saturar la computadora, ya que cargar cientos de miles de recursos del tirón puede llevar largo rato))
 

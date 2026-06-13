@@ -17,13 +17,14 @@ function App() {
   const hello = "Hola, admin"
   const inf = "Todo parece estar en orden . . "
   const advert = "0 días desde la última caída del servidor"
+  const holi = "Holi"
   return (
     <>
       <Router>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<RegLog />} />
-          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/perfil" element={<Perfil saludo={holi} />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/editar" element={<Editar />} />
           <Route path="/carrito" element={<Carrito />} />
