@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../index.css'
-import lupa from "../images/lupa.svg"
-import menu from "../images/menu.svg"
-import rainbow from "../images/rainbow.svg"
+import '../../index.css'
+import lupa from "../../images/lupa.svg"
+import menu from "../../images/menu.svg"
+import rainbow from "../../images/rainbow.svg"
 
 const Perfil = () => {
     // Respecto a eliminar el usuario

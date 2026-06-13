@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../index.css'
+import '../../index.css'
 
 // Resumen de vercel : los servidores a veces van mal, otras van bien
 
@@ -100,7 +100,7 @@ const RegLog = () => {
             const response = await fetch("http://localhost:3000/users/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password, userImage })
+                body: JSON.stringify({ username, password, userImage, adminLv })
             });
             if (response.ok) {
                 // http://localhost:3000/users

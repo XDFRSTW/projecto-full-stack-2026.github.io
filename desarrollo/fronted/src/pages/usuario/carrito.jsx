@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../index.css'
-import pencil from "../images/pencil.svg"
-import trash from "../images/trash.svg"
+import '../../index.css'
+import pencil from "../../images/pencil.svg"
+import trash from "../../images/trash.svg"
 
 
 const Carrito = () => {
