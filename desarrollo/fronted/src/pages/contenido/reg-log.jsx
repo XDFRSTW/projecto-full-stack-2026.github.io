@@ -4,6 +4,10 @@ import '../../index.css'
 
 // Resumen de vercel : los servidores a veces van mal, otras van bien
 
+// Ejemplo para llamar a una constante
+// import qwe from "../../const/admin/prueba";
+// qwe(adminLv)
+
 const RegLog = () => {
     // Evitar problemas de duplicadode usuario
         localStorage.removeItem("User");
@@ -29,8 +33,7 @@ const RegLog = () => {
     let [rejectRegister, setReject] = useState(false);
     // mensaje para el usuario
     let [message, setMessage] = useState("");
-
-
+    
 
     //    Reiniciar valores
     // const handleReset = () => {

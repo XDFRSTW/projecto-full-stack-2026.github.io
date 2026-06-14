@@ -18,8 +18,7 @@ const Perfil = ({saludo}) => {
     let username = localStorage.getItem("User");
     let user = localStorage.getItem("Id");
 
-
-
+  
     // Hablamos del producto
 
     // Id usuario

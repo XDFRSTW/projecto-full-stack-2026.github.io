@@ -8,6 +8,7 @@ import galaxia from "../../images/galaxia.png"
 import cart from "../../images/cart.svg"
 import trash from "../../images/trash.svg"
 
+
 const Home = () => {
     // Eliminar producto
     let [idToEliminate, setIdToEliminate] = useState("");
