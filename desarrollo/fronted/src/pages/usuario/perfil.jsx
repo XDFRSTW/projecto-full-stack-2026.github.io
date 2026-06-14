@@ -5,7 +5,7 @@ import lupa from "../../images/lupa.svg"
 import menu from "../../images/menu.svg"
 import rainbow from "../../images/rainbow.svg"
 // Constantes
-import handleUserImages from "../../const/usuario/Perfil";
+// import handleUserImages from "../../const/perfil/handleUserImage";
 
 const Perfil = ({saludo}) => {
     // Respecto a eliminar el usuario
@@ -175,8 +175,9 @@ const Perfil = ({saludo}) => {
 
     return (
         <>
+            
             {/* Encabezado */}
-            < header className="perfil-header bg-gray-100/60">
+            < header className="perfil-header bg-gray-100/60">           
                 {/* Foto de perfil */}
                 < div className="perfil-image">
                     <img src={userImage} alt="Foto de perfil" />
@@ -184,8 +185,7 @@ const Perfil = ({saludo}) => {
                 {/* Datos del perfil y enlace a la foto */}
                 < div className="perfil-data perfil-fontSize">
                     <span title="tú" className="perfil-username">{username}</span>
-                    {/* Modificación en esta línea. Texto de prueba */}
-                    <form className="perfil-imageForm" onSubmit={handleUserImages}>
+                    <form className="perfil-imageForm" onSubmit={handleUserImage}>
                         <input className="input" type="text" placeholder="*escribe" value={userImage} onChange={(e) => setUserImage(e.target.value)} />
                         <button className="button perfil-imageFix" type="submit">Cambiar</button>
 
@@ -265,7 +265,11 @@ const Perfil = ({saludo}) => {
                         <button className="button perfil-formButton" type="Submit" title="Crear un producto">Crear</button>
                     </div>
                 </form>
+                 {/* No se porqué añado esto */}
+                 <p>{saludo} {username}</p>
             </main >
+
+           
         </>
     )
 }

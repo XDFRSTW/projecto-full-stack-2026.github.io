@@ -4,8 +4,11 @@ import '../../index.css'
 import lupa from "../../images/lupa.svg"
 import menu from "../../images/menu.svg"
 import rainbow from "../../images/rainbow.svg"
+var winston = require ('winston');
 
 // Comentario : a veces la página se rompe por completo y no funciona. Se arregla esperando un rato
+
+// Probando si winston funciona
 
 const Admin = ({saludo, info, adv}) => {
     const history = useNavigate();
@@ -22,13 +25,17 @@ const Admin = ({saludo, info, adv}) => {
             fetch("http://localhost:3000/users")
                 .then((response) => response.json())
                 .then((data) => setList(list = data.filter((dat) => dat)))
-                .catch((error) => console.error("Error al obtener el usuario", error));
+                .catch((error) => winston.error("Error al obtener el usuario", error));
+                // Antes de añadir winston
+                // .catch((error) => console.error("Error al obtener el usuario", error));
         }
         else {
             fetch("http://localhost:3000/users")
                 .then((response) => response.json())
                 .then((data) => setList(list = data.filter((dat) => dat.username == search)))
-                .catch((error) => console.error("Error al obtener el usuario", error));
+                .catch((error) => winston.error("Error al obtener el usuario", error));
+                // Antes de añadir winston
+                // .catch((error) => console.error("Error al obtener el usuario", error));
         }
     }, []);
     // Seleccionar usuario
@@ -46,7 +53,9 @@ const Admin = ({saludo, info, adv}) => {
                 history("/")
             }
         } catch (error) {
-            console.error("No se ha podido eliminar el usuario", error);
+            winston.error("No se ha podido eliminar el usuario", error);
+            // Antes de añadir winston
+            // console.error("No se ha podido eliminar el usuario", error);
         }
     }
     // Buscar usuario
