@@ -1,2 +1,20 @@
-# projecto full-stack 2026
-Este es un projecto de vital importancia para la sociedad moderna, sin el podría derrumbarse. Es necesario que llegue sano y salvo a su receptor, para que pueda ser ejecutado debidamente. ADVERTENCIA : No enseñar el código a nadie, si cae en malas manos nos veríamos todos en un gran aprieto. Cuide bien el código, cada una de sus líneas.
+Projecto final de desarrollo web.
+
+Índice:
+
+- Explicación del projecto:
+   - ¿Qué utilidad tiene?
+   - ¿Qué es?
+   - ¿Por qué decidiste hacerlo así?
+- Explicación de la organización carpetas
+- ¿Por qué este projecto puede salvar a la humanidad de la extinción masiva y de las fuerzas del mal?
+
+El índice es solo una guía, el texto no tiene porque seguir su estructura al pie de la letra.
+
+
+
+
+
+
+
+Copyright y derechos ---> No copyright, No derechos
