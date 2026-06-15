@@ -1,6 +1,6 @@
 // Eliminar tu usuario
 
-const handleEliminateUser = async (e) => {
+const handleEliminateUserN = async (e, user) => {
         e.preventDefault();
 
         try {
@@ -17,4 +17,4 @@ const handleEliminateUser = async (e) => {
         navigate("/")
     }
 
-export default handleEliminateUser
+export default handleEliminateUserN

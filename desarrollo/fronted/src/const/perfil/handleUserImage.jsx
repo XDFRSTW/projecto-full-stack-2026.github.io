@@ -1,6 +1,6 @@
 // Cambiar la imagen de tu perfil, solo visible para los admins
 
-const handleUserImage = async (e) => {
+const handleUserImageN = async (e, user, userImage) => {
     e.preventDefault();
 
     try {
@@ -18,4 +18,4 @@ const handleUserImage = async (e) => {
 
 }
 
-export default handleUserImage
+export default handleUserImageN

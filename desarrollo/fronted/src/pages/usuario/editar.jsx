@@ -5,6 +5,8 @@ import lupa from "../../images/lupa.svg"
 import menu from "../../images/menu.svg"
 import rainbow from "../../images/rainbow.svg"
 import trash from "../../images/trash.svg"
+import handleEditProductN from "../../const/editar/handleEditProduct";
+import handleEliminateProductN from "../../const/editar/handleEliminateProduct";
 
 // Comentario : a veces la página se rompe por completo y no funciona. Se arregla esperando un rato
 

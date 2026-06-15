@@ -1,6 +1,6 @@
 // Crear un producto para ser expuesto en la tienda
 
-const handleCreateProduct = async (e) => {
+const handleCreateProductN = async (e, userId, ownerName, name, desrc, image, price, localization, contact) => {
         e.preventDefault();
         try {
 
@@ -24,4 +24,4 @@ const handleCreateProduct = async (e) => {
         setContact(contact = "")
     }
 
-export default handleCreateProduct
+export default handleCreateProductN

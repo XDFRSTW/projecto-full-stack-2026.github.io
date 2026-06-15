@@ -1,6 +1,6 @@
 // Editar un producto
 
-const handleEditProduct = async (e) => {
+const handleEditProductN = async (e, product, name, desrc, image, price, localization, contact) => {
     e.preventDefault();
 
     try {
@@ -18,4 +18,4 @@ const handleEditProduct = async (e) => {
 
 }
 
-export default handleEditProduct
+export default handleEditProductN

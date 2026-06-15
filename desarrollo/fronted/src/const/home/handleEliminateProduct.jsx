@@ -1,6 +1,6 @@
 // Eliminar un producto, solo admins
 
-const handleEliminateProduct = async (e) => {
+const handleEliminateProductN = async (e, idToEliminate) => {
     e.preventDefault();
 
     try {
@@ -17,4 +17,4 @@ const handleEliminateProduct = async (e) => {
     navigate("/home")
 }
 
-export default handleEliminateProduct
+export default handleEliminateProductN

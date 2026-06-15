@@ -1,6 +1,6 @@
 // Registrar usuario
 
-const handleRegister = async (e) => {
+const handleRegisterN = async (e, username, password, userImage, adminLv) => {
     e.preventDefault();
     // http://localhost:3000/users
     // https://projecto-full-stack-2026-jn3d.vercel.app/users
@@ -48,4 +48,4 @@ const handleRegister = async (e) => {
 
 }
 
-export default handleRegister
+export default handleRegisterN

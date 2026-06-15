@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import '../../index.css'
+import handleLoginN from "../../const/reg-log/handleLogin";
+import handleRegisterN from "../../const/reg-log/handleRegister";
 
 // Resumen de vercel : los servidores a veces van mal, otras van bien
 

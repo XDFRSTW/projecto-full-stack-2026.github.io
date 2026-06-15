@@ -1,6 +1,6 @@
 // Iniciar sesión con usuario
 
-const handleLogin = async (e) => {
+const handleLoginN = async (e, username, password, userImage, adminLv) => {
     e.preventDefault();
     try {
         // http://localhost:3000/users/login
@@ -40,4 +40,4 @@ const handleLogin = async (e) => {
     }
 }
 
-export default handleLogin
+export default handleLoginN

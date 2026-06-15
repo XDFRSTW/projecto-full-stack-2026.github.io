@@ -7,7 +7,7 @@ import rainbow from "../../images/rainbow.svg"
 import galaxia from "../../images/galaxia.png"
 import cart from "../../images/cart.svg"
 import trash from "../../images/trash.svg"
-
+import handleEliminateProductN from "../../const/home/handleEliminateProduct";
 
 const Home = () => {
     // Eliminar producto

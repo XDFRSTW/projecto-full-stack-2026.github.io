@@ -1,6 +1,6 @@
 // Eliminar un producto
 
-const handleEliminateProduct = async (e) => {
+const handleEliminateProductN = async (e, product) => {
     e.preventDefault();
 
     try {
@@ -17,4 +17,4 @@ const handleEliminateProduct = async (e) => {
     navigate("/home")
 }
 
-export default handleEliminateProduct
+export default handleEliminateProductN

@@ -4,6 +4,7 @@ import '../../index.css'
 import lupa from "../../images/lupa.svg"
 import menu from "../../images/menu.svg"
 import rainbow from "../../images/rainbow.svg"
+import handleEliminateProductN from "../../const/admin/handleEliminateProduct";
 // import winston from "winston/lib/winston/config";
 
 // Comentario : a veces la página se rompe por completo y no funciona. Se arregla esperando un rato

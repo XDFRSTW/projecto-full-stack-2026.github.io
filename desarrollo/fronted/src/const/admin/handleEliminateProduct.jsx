@@ -1,7 +1,7 @@
 // Aunque la constante diga product, lo que elimina es a los usuarios
 // Eliminar cualquier usuario, solo para admins
 
-const handleEliminateProduct = async (e) => {
+const handleEliminateProductN = async (e, idToEliminate) => {
         e.preventDefault();
 
         try {
@@ -17,4 +17,4 @@ const handleEliminateProduct = async (e) => {
         }
     }
 
-export default handleEliminateProduct
+export default handleEliminateProductN

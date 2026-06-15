@@ -6,6 +6,9 @@ import menu from "../../images/menu.svg"
 import rainbow from "../../images/rainbow.svg"
 // Constantes
 // import handleUserImages from "../../const/perfil/handleUserImage";
+import handleCreateProductN from "../../const/perfil/handleCreateProduct";
+import handleEliminateUserN from "../../const/perfil/handleEliminateUser";
+import handleUserImageN from "../../const/perfil/handleUserImage";
 
 const Perfil = ({saludo}) => {
     // Respecto a eliminar el usuario
