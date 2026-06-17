@@ -16,6 +16,8 @@ const cartRouter = require("./routers/cart-router");
 const notFound = require("./middlewares/404");
 const internalServerError = require("./middlewares/500");
 // const authMiddleware = require("./middlewares/auth");
+// Winston
+var winston = require ('winston');
 
 dotenv.config();
 
@@ -29,12 +31,13 @@ app.get('/', (_req, res) => {
 })
 
 
+
 app.use(cors({origin: "*", allowedHeaders: "*", methods: ["PUT", "GET", "POST", "DELETE"]}));
 app.use(express.json());
 //Conectandoa mongoo
 mongoose.connect(MONGO_UNI)
-    .then(() => console.log("Inicializando"))
-    .catch((err => console.error("No ha podido conectarse a la base de datos", err)));
+    .then(() => winston.info('Inicializando'))
+    .catch((err => winston.error("No ha podido conectarse a la base de datos", err)));
 // usando el router del usuario
 app.use("/users", userRouter);
 // usando el router del producto
@@ -47,5 +50,9 @@ app.use(internalServerError);
 
 app.listen(PORT, () => {
     // Envía este mensaje por consola si se conecta a mongoose
-    console.log(`listening at http://localhost:${PORT}`)
+    winston.info(`listening at http://localhost:${PORT}`)
 })
+
+
+
+// Se ha pasado de usar console a winston en todo el backend

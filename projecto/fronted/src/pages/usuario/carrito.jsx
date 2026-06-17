@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../index.css'
-import pencil from "../images/pencil.svg"
-import trash from "../images/trash.svg"
+import '../../index.css'
+import pencil from "../../images/pencil.svg"
+import trash from "../../images/trash.svg"
 
 
-const Productos = () => {
-    // Respecto a eliminar producto
+const Carrito = () => {
+    // Eliminar del carrito
 
-    let [productId, setProductId] = useState("");
-    let [productDelete, setProductDelete] = useState("no");
+    let [cartDelete, setCartDelete] = useState("");
 
     // Datos del usuario
     let [userImage, setUserImage] = useState("");
@@ -18,49 +17,34 @@ const Productos = () => {
 
     let [list, setList] = useState([]);
 
-
-
-    // Hablamos del producto
+    // Hablamos del carrito
 
     // Id usuario
-    let [userId, setUserId] = useState(user);
+    let [userId, setUserId] = useState("");
     // Nombre usuario
-    let [ownerName, setOwnerName] = useState(username);
-    // Nombre producto
-    let [name, setName] = useState("");
-    // Descripción producto
-    let [desrc, setDesrc] = useState("");
-    // Enlace de la imagen
-    let [image, setImage] = useState("");
-    // Precio delproducto
-    let [price, setPrice] = useState("");
-    // Localización del producto
-    let [localization, setLocalization] = useState("");
-    // Contacto con el dueño
-    let [contact, setContact] = useState("");
+    let [productId, setproductId] = useState("");
 
     // Needed
 
     const history = useNavigate();
     const navigate = useNavigate();
 
-
     // Este código necesita ejecutarse dos veces para funcionar
 
     let Desolation = localStorage.getItem("Desolation");
     let length = 0;
     function fetchFix() {
-        fetch("https://produccion-livid.vercel.app/users")
+        fetch("https://projecto-full-stack-2026-jn3d.vercel.app/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(), dat.password == Desolation ? setUserImage(userImage = dat.userImage) : console.log() }))
             .catch((error) => console.error("Error al obtener el usuario", error));
     }
-    // Debería usarse useEffect para ejecutar esta porción de código. No lo use porque no es necesario (al parecer si que lo acabé usando)
+    // Debería usarse useEffect para ejecutar esta porción de código. No lo use porque no es necesario (alparecer si que lo acabé usando)
     if (Desolation != "Not yet") {
         useEffect(() => {
             fetchFix()
             if (Desolation) {
-                fetch("https://produccion-livid.vercel.app/users", {
+                fetch("https://projecto-full-stack-2026-jn3d.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -69,7 +53,7 @@ const Productos = () => {
                     .then((data) => localStorage.setItem("User", data[length].username))
                     .catch((error) => console.error("Error al obtener el usuario", error));
                 // , localStorage.setItem("Desolation", "Not yet")
-                fetch("https://produccion-livid.vercel.app/users", {
+                fetch("https://projecto-full-stack-2026-jn3d.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -86,7 +70,7 @@ const Productos = () => {
     // Para que se muestren solo los productos del usuario
 
     useEffect(() => {
-        fetch("https://produccion-livid.vercel.app/products")
+        fetch("https://projecto-full-stack-2026-jn3d.vercel.app/carts")
             .then((response) => response.json())
             .then((data) => setList(list = data.filter((dat) => dat.userId == user)))
             .catch((error) => console.error("Error al obtener el usuario", error));
@@ -94,53 +78,29 @@ const Productos = () => {
 
     // setList(list = data.filter((dat) => dat.userId == user))
 
-    // Función para el botón de eliminar producto (Da error en consola, pero de todas formas funciona)
-
-    // useEffect(() => {
-    //     if (productDelete =! "no") {
-    //         try {
-    //             const response = fetch(`https://produccion-livid.vercel.app/products/delete/${productDelete}`, {
-    //                 method: "DELETE",
-    //                 headers: { "Content-Type": "application/json" }
-    //             });
-    //             if (response.ok) {
-    //                 history("/")
-    //             }
-    //         } catch (error) {
-    //             console.error("No se ha podido eliminar el producto", error);
-    //         }
-    //         navigate("/Productos")
-    //     }
-    // }, [productDelete])
+    // Función para el botón de eliminar del carrito
 
 
-
-    // function handleDelete() {
-    //     try {
-    //         const response = fetch(`https://produccion-livid.vercel.app/products/delete/${productDelete}`, {
-    //             method: "DELETE",
-    //             headers: { "Content-Type": "application/json" }
-    //         });
-    //         if (response.ok) {
-    //             history("/")
-    //         }
-    //     } catch (error) {
-    //         console.error("No se ha podido eliminar el producto", error);
-    //     }
-    //     navigate("/Productos")
-    // }
-
-    // Función para editar el producto
-
-    useEffect(() => {
-        localStorage.setItem("product", productId);
-    }, [productId])
+    function handleDelete() {
+        console.log(1)
+        try {
+            const response = fetch(`https://projecto-full-stack-2026-jn3d.vercel.app/carts/delete/${cartDelete}`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" }
+            });
+            if (response.ok) {
+                history("/")
+            }
+        } catch (error) {
+            console.error("No se ha podido eliminar del carrito", error);
+        }
+    }
 
     return (
         <>
             {/* Encabezado épicamente wendingo */}
             <header className="averageHeader bg-gray-500 flex">
-                <h2>Tus productos</h2>
+                <h2>Tu carrito</h2>
             </header>
             {/* Apartado principal de la página */}
             <main>
@@ -152,7 +112,7 @@ const Productos = () => {
                     {list.map((cont, index) => (
                         <div className="productBox" key={index}>
                             <div>
-                               <span className="font-bold">{cont.name} </span>                           
+                                <span className="font-bold">{cont.name} </span>           
                                 <p className="productText text-2xl mb-4"><span className="underline">Precio:</span> {cont.price}</p>
                             </div>
                             <div>
@@ -167,7 +127,7 @@ const Productos = () => {
                                 <p className=" p-2 productText">{cont.desrc} </p>
                             </div>
                             <div className="buttonsBox">
-                                <button className="averageButton averageIcon" onClick={() => setProductId(productId = cont._id)}><a href="/editar"><img src={pencil} alt="editar" title="editar el producto" /></a></button>
+                                <button className="averageButton averageIcon button" onClick={() => { setCartDelete(cartDelete = cont._id), handleDelete(), console.log(2) }}><img src={trash} alt="edliminar" title="eliminar el producto" /></button>
                             </div>
                         </div>
                     ))}
@@ -177,4 +137,4 @@ const Productos = () => {
     )
 }
 
-export default Productos
+export default Carrito

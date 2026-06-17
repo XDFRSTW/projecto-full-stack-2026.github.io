@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     username: {type: String, required: true},
     password: {type: String, required: true},
     userImage : {type: String, required: true},
-    adminLv : {type: String, required: true}
+    adminLv : {type: Boolean, required: true}
 
 });
 // Generar una contraseña aleatoria a partir de la introducida

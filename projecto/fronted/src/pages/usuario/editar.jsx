@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../index.css'
-import lupa from "../images/lupa.svg"
-import menu from "../images/menu.svg"
-import rainbow from "../images/rainbow.svg"
-import trash from "../images/trash.svg"
+import '../../index.css'
+import lupa from "../../images/lupa.svg"
+import menu from "../../images/menu.svg"
+import rainbow from "../../images/rainbow.svg"
+import trash from "../../images/trash.svg"
+import handleEditProductN from "../../const/editar/handleEditProduct";
+import handleEliminateProductN from "../../const/editar/handleEliminateProduct";
 
 // Comentario : a veces la página se rompe por completo y no funciona. Se arregla esperando un rato
 
@@ -51,7 +53,7 @@ const Editar = () => {
     // Función para coger los datos del producto
 
     useEffect(() => {
-        fetch("https://produccion-livid.vercel.app/products")
+        fetch("https://projecto-full-stack-2026-jn3d.vercel.app/products")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat._id == product ? setProductData(productData = dat) : console.log() }))
             .catch((error) => console.error("Error al obtener el usuario", error));
@@ -74,7 +76,7 @@ const Editar = () => {
         e.preventDefault();
 
         try {
-            const response = fetch(`https://produccion-livid.vercel.app/products/update/${product}`, {
+            const response = fetch(`https://projecto-full-stack-2026-jn3d.vercel.app/products/update/${product}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, desrc, image, price, localization, contact })
@@ -92,7 +94,7 @@ const Editar = () => {
         e.preventDefault();
 
         try {
-            const response = fetch(`https://produccion-livid.vercel.app/products/delete/${product}`, {
+            const response = fetch(`https://projecto-full-stack-2026-jn3d.vercel.app/products/delete/${product}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" }
             });
