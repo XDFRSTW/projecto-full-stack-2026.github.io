@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../index.css'
+import '../../index.css'
+import handleLoginN from "../../const/reg-log/handleLogin";
+import handleRegisterN from "../../const/reg-log/handleRegister";
 
 // Resumen de vercel : los servidores a veces van mal, otras van bien
+
+// Ejemplo para llamar a una constante
+// import qwe from "../../const/admin/prueba";
+// qwe(adminLv)
 
 const RegLog = () => {
     // Evitar problemas de duplicadode usuario
@@ -16,7 +22,8 @@ const RegLog = () => {
     let [username, setUsername] = useState("");
     let [password, setPassword] = useState("");
     let [userImage, setUserImage] = useState("https://i.pinimg.com/originals/9d/7c/74/9d7c745207ba381b7bc4d41912ef4196.jpg?nii=t");
-    let [adminLv, setAdminLv] = useState("averageUser");
+    let [adminLv, setAdminLv] = useState(false);
+   
     // Niveles de administrador
     // averageUser
     // webAdminUser
@@ -28,8 +35,7 @@ const RegLog = () => {
     let [rejectRegister, setReject] = useState(false);
     // mensaje para el usuario
     let [message, setMessage] = useState("");
-
-
+    
 
     //    Reiniciar valores
     // const handleReset = () => {
@@ -46,7 +52,7 @@ const RegLog = () => {
         // https://projecto-full-stack-2026-jn3d.vercel.app/users
 
         // Nos aseguramos antes de nada que el nombre de usuario no exista
-        fetch("https://produccion-livid.vercel.app/users")
+        fetch("http://localhost:3000/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log() }))
             .catch((error) => console.error("Error al obtener el mensaje", error));
@@ -65,7 +71,7 @@ const RegLog = () => {
 
                 try {
                     // await ha sido eliminado del fetch para que no se repitan los nombres de usuario (era la solución más simple que había podido encontrar)
-                    const response = fetch("https://produccion-livid.vercel.app/users/register", {
+                    const response = fetch("http://localhost:3000/users/register", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ username, password, userImage, adminLv })
@@ -96,16 +102,16 @@ const RegLog = () => {
             // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users/login
 
             // Conectando la base de datos
-            const response = await fetch("https://produccion-livid.vercel.app/users/login", {
+            const response = await fetch("http://localhost:3000/users/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password, userImage })
+                body: JSON.stringify({ username, password, userImage, adminLv })
             });
             if (response.ok) {
                 // http://localhost:3000/users
                 // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users
 
-                fetch("https://produccion-livid.vercel.app/users")
+                fetch("http://localhost:3000/users")
                     .then((response) => response.json())
                     // Técnica peligrosísima para autentificar usuario.La contraseña solo está expuesta durante unos segundos
                     .then((data) => data.map((dat, index) => {

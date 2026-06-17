@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../index.css'
-import lupa from "../images/lupa.svg"
-import menu from "../images/menu.svg"
-import rainbow from "../images/rainbow.svg"
+import '../../index.css'
+import lupa from "../../images/lupa.svg"
+import menu from "../../images/menu.svg"
+import rainbow from "../../images/rainbow.svg"
+import handleEliminateProductN from "../../const/admin/handleEliminateProduct";
+// import winston from "winston/lib/winston/config";
 
 // Comentario : a veces la página se rompe por completo y no funciona. Se arregla esperando un rato
 
-const Admin = () => {
+// Probando si winston funciona
+
+const Admin = ({saludo, info, adv}) => {
     const history = useNavigate();
     const navigate = useNavigate();
     // Eliminar usuarios
@@ -19,15 +23,19 @@ const Admin = () => {
     // Mostrar todos los usuarios (y buscar)
     useEffect(() => {
         if (search == "") {
-            fetch("https://produccion-livid.vercel.app/users")
+            fetch("http://localhost:3000/users")
                 .then((response) => response.json())
                 .then((data) => setList(list = data.filter((dat) => dat)))
+                // .catch((error) => winston.error("Error al obtener el usuario", error));
+                // Antes de añadir winston
                 .catch((error) => console.error("Error al obtener el usuario", error));
         }
         else {
-            fetch("https://produccion-livid.vercel.app/users")
+            fetch("http://localhost:3000/users")
                 .then((response) => response.json())
                 .then((data) => setList(list = data.filter((dat) => dat.username == search)))
+                // .catch((error) => winston.error("Error al obtener el usuario", error));
+                // Antes de añadir winston
                 .catch((error) => console.error("Error al obtener el usuario", error));
         }
     }, []);
@@ -38,7 +46,7 @@ const Admin = () => {
         e.preventDefault();
 
         try {
-            const response = fetch(`https://produccion-livid.vercel.app/users/delete/${idToEliminate}`, {
+            const response = fetch(`http://localhost:3000/users/delete/${idToEliminate}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" }
             });
@@ -46,6 +54,8 @@ const Admin = () => {
                 history("/")
             }
         } catch (error) {
+            // winston.error("No se ha podido eliminar el usuario", error);
+            // Antes de añadir winston
             console.error("No se ha podido eliminar el usuario", error);
         }
     }
@@ -56,6 +66,9 @@ const Admin = () => {
 
     return (
         <>
+            <header>
+                <p>{saludo}. {info}. {adv}</p>
+            </header>
             <main className="">
                 {/* Volver */}
                 <div className="averageMargin"><a className="averageVolver averageMargin button" href="/home">Volver</a></div>

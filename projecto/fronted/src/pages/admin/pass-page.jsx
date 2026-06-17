@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../index.css'
-import lupa from "../images/lupa.svg"
-import menu from "../images/menu.svg"
-import rainbow from "../images/rainbow.svg"
+import '../../index.css'
+import lupa from "../../images/lupa.svg"
+import menu from "../../images/menu.svg"
+import rainbow from "../../images/rainbow.svg"
 
 // Comentario : a veces la página se rompe por completo y no funciona. Se arregla esperando un rato
 
@@ -18,7 +18,7 @@ const PassPage = () => {
     let Desolation = localStorage.getItem("Desolation");
     let length = 0;
     function fetchFix() {
-        fetch("https://produccion-livid.vercel.app/users")
+        fetch("http://localhost:3000/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(), dat.password == Desolation ? setUserImage(userImage = dat.userImage) : console.log() }))
             .catch((error) => console.error("Error al obtener el usuario", error));
@@ -28,7 +28,7 @@ const PassPage = () => {
         useEffect(() => {
             fetchFix()
             if (Desolation) {
-                fetch("https://produccion-livid.vercel.app/users", {
+                fetch("http://localhost:3000/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -37,7 +37,7 @@ const PassPage = () => {
                     .then((data) => localStorage.setItem("User", data[length].username))
                     .catch((error) => console.error("Error al obtener el usuario", error));
                 // , localStorage.setItem("Desolation", "Not yet")
-                fetch("https://produccion-livid.vercel.app/users", {
+                fetch("http://localhost:3000/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
