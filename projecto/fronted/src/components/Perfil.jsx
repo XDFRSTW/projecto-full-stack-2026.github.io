@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../../index.css'
-import lupa from "../../images/lupa.svg"
-import menu from "../../images/menu.svg"
-import rainbow from "../../images/rainbow.svg"
-// Constantes
-// import handleUserImages from "../../const/perfil/handleUserImage";
-import handleCreateProductN from "../../const/perfil/handleCreateProduct";
-import handleEliminateUserN from "../../const/perfil/handleEliminateUser";
-import handleUserImageN from "../../const/perfil/handleUserImage";
+import '../index.css'
+import lupa from "../images/lupa.svg"
+import menu from "../images/menu.svg"
+import rainbow from "../images/rainbow.svg"
 
-const Perfil = ({saludo}) => {
+const Perfil = () => {
     // Respecto a eliminar el usuario
 
     let [panel, setPanel] = useState(false);
@@ -21,7 +16,8 @@ const Perfil = ({saludo}) => {
     let username = localStorage.getItem("User");
     let user = localStorage.getItem("Id");
 
-  
+
+
     // Hablamos del producto
 
     // Id usuario
@@ -56,7 +52,7 @@ const Perfil = ({saludo}) => {
     let Desolation = localStorage.getItem("Desolation");
     let length = 0;
     function fetchFix() {
-        fetch("http://localhost:3000/users")
+        fetch("https://produccion-livid.vercel.app/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(), dat.password == Desolation ? setUserImage(userImage = dat.userImage) : console.log() }))
             .catch((error) => console.error("Error al obtener el usuario", error));
@@ -66,7 +62,7 @@ const Perfil = ({saludo}) => {
         useEffect(() => {
             fetchFix()
             if (Desolation) {
-                fetch("http://localhost:3000/users", {
+                fetch("https://produccion-livid.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -75,7 +71,7 @@ const Perfil = ({saludo}) => {
                     .then((data) => localStorage.setItem("User", data[length].username))
                     .catch((error) => console.error("Error al obtener el usuario", error));
                 // , localStorage.setItem("Desolation", "Not yet")
-                fetch("http://localhost:3000/users", {
+                fetch("https://produccion-livid.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -98,7 +94,7 @@ const Perfil = ({saludo}) => {
         e.preventDefault();
 
         try {
-            const response = fetch(`http://localhost:3000/users/update/${user}`, {
+            const response = fetch(`https://produccion-livid.vercel.app/users/update/${user}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ userImage })
@@ -124,7 +120,7 @@ const Perfil = ({saludo}) => {
         e.preventDefault();
         try {
 
-            const response = fetch("http://localhost:3000/products/create", {
+            const response = fetch("https://produccion-livid.vercel.app/products/create", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ userId, ownerName, name, desrc, image, price, localization, contact })
@@ -150,7 +146,7 @@ const Perfil = ({saludo}) => {
         e.preventDefault();
 
         try {
-            const response = fetch(`http://localhost:3000/users/delete/${user}`, {
+            const response = fetch(`https://produccion-livid.vercel.app/users/delete/${user}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" }
             });
@@ -177,9 +173,8 @@ const Perfil = ({saludo}) => {
 
     return (
         <>
-            
             {/* Encabezado */}
-            < header className="perfil-header bg-gray-100/60">           
+            < header className="perfil-header bg-gray-100/60">
                 {/* Foto de perfil */}
                 < div className="perfil-image">
                     <img src={userImage} alt="Foto de perfil" />
@@ -267,11 +262,7 @@ const Perfil = ({saludo}) => {
                         <button className="button perfil-formButton" type="Submit" title="Crear un producto">Crear</button>
                     </div>
                 </form>
-                 {/* No se porqué añado esto */}
-                 <p>{saludo} {username}</p>
             </main >
-
-           
         </>
     )
 }

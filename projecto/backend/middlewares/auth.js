@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-// Este middleware no está en uso debido a problemas que provoca en la aplicación.
 
 async function authMiddleware(req, res, next) {
     const authHeader = req.headers.athorization;
@@ -18,7 +17,5 @@ async function authMiddleware(req, res, next) {
         return res.status(401).json( {message: "inautorizado", error });
     }
 }
-
-
 
 module.exports = authMiddleware;

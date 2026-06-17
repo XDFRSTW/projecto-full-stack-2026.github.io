@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../../index.css'
-import lupa from "../../images/lupa.svg"
-import menu from "../../images/menu.svg"
-import rainbow from "../../images/rainbow.svg"
-import galaxia from "../../images/galaxia.png"
-import cart from "../../images/cart.svg"
-import trash from "../../images/trash.svg"
-import handleEliminateProductN from "../../const/home/handleEliminateProduct";
+import '../index.css'
+import lupa from "../images/lupa.svg"
+import menu from "../images/menu.svg"
+import rainbow from "../images/rainbow.svg"
+import galaxia from "../images/galaxia.png"
+import cart from "../images/cart.svg"
+import trash from "../images/trash.svg"
 
 const Home = () => {
     // Eliminar producto
@@ -17,7 +16,7 @@ const Home = () => {
     const history = useNavigate();
     const navigate = useNavigate();
 
-    // Respecto a mostrar todos los productos existente (el código que yo voy a usar no serviría para páginas con bases de datos
+    // Respecto a mostrar todos los productos existente (el código que yo voya usar no serviría para páginas con bases de datos
     //  de tamaños importantes, por el tiempo que tardaría en cargar (en las típicas tiendas de productos suelen mostrarse de 
     // poco en poco para no saturar la computadora, ya que cargar cientos de miles de recursos del tirón puede llevar largo rato))
 
@@ -66,7 +65,7 @@ const Home = () => {
     let length = 0;
     // Buscamos el espacio del array en el que se encuentra el usuario
     function fetchFix() {
-        fetch("http://localhost:3000/users")
+        fetch("https://produccion-livid.vercel.app/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(); }))
             .catch((error) => console.error("Error al obtener el usuario", error));
@@ -76,7 +75,7 @@ const Home = () => {
         useEffect(() => {
             fetchFix()
             if (Desolation) {
-                fetch("http://localhost:3000/users", {
+                fetch("https://produccion-livid.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -100,14 +99,14 @@ const Home = () => {
 
     useEffect(() => {
         if (search == "") {
-            fetch("http://localhost:3000/products")
+            fetch("https://produccion-livid.vercel.app/products")
                 .then((response) => response.json())
                 // No se lo que he hecho con este código, pero si funciona, no se toca
                 .then((data) => setList(list = data.filter((dat) => dat)))
                 .catch((error) => console.error("Error al obtener el producto", error));
         }
         else {
-            fetch("http://localhost:3000/products")
+            fetch("https://produccion-livid.vercel.app/products")
                 .then((response) => response.json())
                 .then((data) => setList(list = data.filter((dat) => dat.name == search)))
                 .catch((error) => console.error("Error al obtener el producto", error));
@@ -122,7 +121,7 @@ const Home = () => {
     async function handleAddToCart(id) {
         let productId = id;
         try {
-            const response = fetch("http://localhost:3000/carts/add", {
+            const response = fetch("https://produccion-livid.vercel.app/carts/add", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ userId, productId, ownerName, name, desrc, image, price, localization, contact })
@@ -141,7 +140,7 @@ const Home = () => {
         e.preventDefault();
 
         try {
-            const response = fetch(`http://localhost:3000/products/delete/${idToEliminate}`, {
+            const response = fetch(`https://produccion-livid.vercel.app/products/delete/${idToEliminate}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" }
             });
@@ -174,8 +173,8 @@ const Home = () => {
 
                 <h1 className="home-title">Galena</h1>
 
-                <div className={adminLv == true ? "home-right" : "invisible"}>
-                    <a href="/Admin" title="admin" className={adminLv == true ? "home-icons" : "invisible"}>Admin</a>
+                <div className={adminLv == "webAdminUser" ? "home-right" : "invisible"}>
+                    <a href="/Admin" title="admin" className={adminLv == "webAdminUser" ? "home-icons" : "invisible"}>Admin</a>
                 </div>
 
             </header>
@@ -193,13 +192,13 @@ const Home = () => {
 
                 {/* Resultados (Modelo de productos sacados de la página "productos", además del código) */}
                 <div className="bg-gray-300 productsBox">
-                    {/* Una vez más usamos index como key, pero en el caso de esta página, no resulta efectos negativos en el rendimiento, o al menos así aparenta ser */}
+                    {/* Una vez más usamos index como key, pero en el caso de esta página, no resulta efectosnegativos enel rendimiento, o al menos así aparenta ser */}
                     {list.map((cont, index) => (
 
                         <div className="productBox" key={index}>
                             <div>
                                 <span className="font-bold">{cont.name} </span>
-                                <button className={adminLv == true ? "averageButton averageIcon font-bold" : "invisible"} onClick={() => setIdToEliminate(idToEliminate = cont._id)}> |Seleccionar| </button>
+                                <button className={adminLv == "webAdminUser" ? "averageButton averageIcon font-bold" : "invisible"} onClick={() => setIdToEliminate(idToEliminate = cont._id)}> |Seleccionar| </button>
                                 <p className="productText text-2xl mb-4"><span className="underline">Precio:</span> {cont.price}</p>
                             </div>
                             <div>
@@ -218,7 +217,7 @@ const Home = () => {
                                     setLocalization(localization = cont.localization), setDesrc(desrc = cont.desrc), setImage(image = cont.image),
                                     setName(name = cont.name), setOwnerName(ownerName = cont.ownerName), setPrice(price = cont.price)
                                 }}><img src={cart} alt="editar" title="editar el producto" /></button>
-                                <button className={adminLv == true ? "averageButton averageIcon ml-10" : "invisible"} onClick={handleEliminateProduct}>
+                                <button className={adminLv == "webAdminUser" ? "averageButton averageIcon ml-10" : "invisible"} onClick={handleEliminateProduct}>
                                     <img src={trash} alt="eliminar" title="eliminar el producto" /></button>
                             </div>
                         </div>
