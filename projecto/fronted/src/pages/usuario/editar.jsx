@@ -72,6 +72,7 @@ const Editar = () => {
 
 
     // Función para editar el producto
+    // No se usa pero se queda aquí por si acaso. De decoración
     const handleEditProduct = async (e) => {
         e.preventDefault();
 
@@ -90,6 +91,7 @@ const Editar = () => {
 
     }
     // Eliminar el producto 
+    // No se usa pero se queda aquí por si acaso. De decoración
     const handleEliminateProduct = async (e) => {
         e.preventDefault();
 
@@ -139,7 +141,7 @@ const Editar = () => {
                                 <span> {localization}</span>
                             </div>
                             <div className="buttonsBox">
-                                <button className="averageButton averageIcon buttonRight editar-buttonFix" onClick={handleEliminateProduct}>
+                                <button className="averageButton averageIcon buttonRight editar-buttonFix" onClick={(e) => handleEliminateProductN(e,product)}>
                                     <img src={trash} alt="eliminar" title="eliminar el producto" /></button>
                             </div>
                         </div>
@@ -150,7 +152,7 @@ const Editar = () => {
                     {/* Título del formulario (afuera de este para que no le afecte la propiedad flex) */}
                     <h2 className="perfil-formTitle border-t border-black-900">Editar producto</h2>
                     {/* Formulario para crear un producto */}
-                    <form className="perfil-form" onSubmit={handleEditProduct}>
+                    <form className="perfil-form" onSubmit={(e) => handleEditProductN(e, product, name, desrc, image, price, localization, contact)}>
                         {/* Datos del producto */}
 
                         {/* Nombre */}

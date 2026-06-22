@@ -94,6 +94,7 @@ const Perfil = ({saludo}) => {
 
 
     // Función para cambiar la foto de perfil del usuario
+    // No se usa pero se queda aquí por si acaso. De decoración
     const handleUserImage = async (e) => {
         e.preventDefault();
 
@@ -120,6 +121,7 @@ const Perfil = ({saludo}) => {
     // }
 
     // Función para crear productos
+    // No se usa pero se queda aquí por si acaso. De decoración
     const handleCreateProduct = async (e) => {
         e.preventDefault();
         try {
@@ -145,6 +147,7 @@ const Perfil = ({saludo}) => {
     }
 
     // Eliminar al usuario
+    // No se usa pero se queda aquí por si acaso. De decoración
 
     const handleEliminateUser = async (e) => {
         e.preventDefault();
@@ -187,7 +190,7 @@ const Perfil = ({saludo}) => {
                 {/* Datos del perfil y enlace a la foto */}
                 < div className="perfil-data perfil-fontSize">
                     <span title="tú" className="perfil-username">{username}</span>
-                    <form className="perfil-imageForm" onSubmit={handleUserImage}>
+                    <form className="perfil-imageForm" onSubmit={(e) => handleUserImageN(e, user, userImage)}>
                         <input className="input" type="text" placeholder="*escribe" value={userImage} onChange={(e) => setUserImage(e.target.value)} />
                         <button className="button perfil-imageFix" type="submit">Cambiar</button>
 
@@ -203,7 +206,7 @@ const Perfil = ({saludo}) => {
                 < div className={panel == true ? ("perfil-deletePanel perfil-showPanel") : ("perfil-deletePanel invisible")}>
                     <p className={panel == true ? ("perfil-panelContent perfil-deleteText") : ("invisible")}>¿Estas seguro de eliminar tu perfil?</p>
                     <div className="perfil-deleteDiv">
-                        <button className={panel == true ? ("perfil-marginRight button") : ("invisible button")} onClick={handleEliminateUser}>Si</button>
+                        <button className={panel == true ? ("perfil-marginRight button") : ("invisible button")} onClick={(e) => handleEliminateUserN(e, user)}>Si</button>
                         <button className={panel == true ? ("button") : ("invisible button")} onClick={() => setPanel(panel = false)}>No</button>
                     </div>
 
@@ -217,7 +220,7 @@ const Perfil = ({saludo}) => {
                 {/* Título del formulario (afuera de este para que no le afecte la propiedad flex) */}
                 <h2 className="perfil-formTitle">Crear nuevo producto</h2>
                 {/* Formulario para crear un producto */}
-                <form className="perfil-form" onSubmit={handleCreateProduct}>
+                <form className="perfil-form" onSubmit={(e) => handleCreateProductN(e, userId, ownerName, name, desrc, image, price, localization, contact)}>
                     {/* Datos del producto */}
 
                     {/* Nombre */}

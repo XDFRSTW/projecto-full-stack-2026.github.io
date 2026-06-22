@@ -42,6 +42,7 @@ const Admin = ({saludo, info, adv}) => {
     // Seleccionar usuario
     
     // Eliminar usuario
+    // No se usa pero se queda aquí por si acaso. De decoración
     const handleEliminateProduct = async (e) => {
         e.preventDefault();
 
@@ -95,7 +96,7 @@ const Admin = ({saludo, info, adv}) => {
                                 <button className="averageButton averageIcon font-bold" onClick={() => setIdToEliminate(idToEliminate = cont._id)}>Seleccionar</button>
                             </div>
                             <div className="admin-buttonsBox">
-                                <button className="averageButton averageIcon font-bold" onClick={handleEliminateProduct}>Eliminar</button>
+                                <button className="averageButton averageIcon font-bold" onClick={(e) => handleEliminateProductN(e,idToEliminate)}>Eliminar</button>
                             </div>
                         </div>
                     ))}

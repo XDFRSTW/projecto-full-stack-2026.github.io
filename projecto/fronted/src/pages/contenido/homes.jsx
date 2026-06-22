@@ -120,6 +120,7 @@ const Home = () => {
     // ._id = "69dfae13f7498f699ddafed1"
 
     // Añadir objeto al carrito
+    // No se usa pero se queda aquí por si acaso. De decoración
     async function handleAddToCart(id) {
         let productId = id;
         try {
@@ -138,6 +139,7 @@ const Home = () => {
 
     // Eliminar productos
 
+    // No se usa pero se queda aquí por si acaso. De decoración
     const handleEliminateProduct = async (e) => {
         e.preventDefault();
 
@@ -219,7 +221,7 @@ const Home = () => {
                                     setLocalization(localization = cont.localization), setDesrc(desrc = cont.desrc), setImage(image = cont.image),
                                     setName(name = cont.name), setOwnerName(ownerName = cont.ownerName), setPrice(price = cont.price)
                                 }}><img src={cart} alt="editar" title="editar el producto" /></button>
-                                <button className={adminLv == "true" ? "averageButton averageIcon ml-10" : "invisible"} onClick={handleEliminateProduct}>
+                                <button className={adminLv == "true" ? "averageButton averageIcon ml-10" : "invisible"} onClick={(e) => handleEliminateProductN(e, idToEliminate)}>
                                     <img src={trash} alt="eliminar" title="eliminar el producto" /></button>
                             </div>
                         </div>
