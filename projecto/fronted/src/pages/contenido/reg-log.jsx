@@ -162,7 +162,7 @@ const RegLog = () => {
 
                     <div className="regLog-averageFontSize flex mt-24">
                         {/* Formulario para iniciar sesión o registrarse */}
-                        <form className="regLog-column flex bg-gray-200" onSubmit={regLog == true ? handleRegister : handleLoginN}>
+                        <form className="regLog-column flex bg-gray-200" onSubmit={regLog == true ? handleRegister : handleLogin}>
 
                             {/* Nombre usuario */}
                             <label htmlFor="name">Nombre de usuario : </label>
